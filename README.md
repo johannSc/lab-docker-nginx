@@ -1,19 +1,19 @@
 # nginx lab 
 
-- [Getting the image](#getting-the-image)
-- [Run the bare image](#run-the-bare-image)
+- [Récupération de l'image](#récupération-de-l'image)
+- [Lancement Docker Run](#lancement-docker-run
 - [Configuration](#configuration)
 - [Proxy server](#proxy-server)
-- [Match request path with regex](#match-request-path-with-regex)
+- [Requêtes locales](#requêtes_locales)
 - [Load balancing](#load-balancing)
 
-## Getting the image
+## Récupération de l'image
 
 ```
 docker pull nginx
 ```
 
-## Run the bare image
+## Lancement Docker Run
 
 ```
 docker run --rm -d -p 80:80 nginx
@@ -47,7 +47,7 @@ docker run --rm -v $(pwd)/nginx-proxy.conf:/etc/nginx/nginx.conf:ro -v $(pwd)/da
 curl localhost
 ```
 
-## Match request path with regex
+## Requêtes locales
 
 See `nginx-regex.conf`.
 
