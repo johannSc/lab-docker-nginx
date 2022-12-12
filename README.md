@@ -1,7 +1,7 @@
 # nginx lab 
 
 - [Récupération de l'image](#récupération-de-l'image)
-- [Lancement Docker Run](#lancement-docker-run
+- [Lancement Docker Run](#lancement-docker-run)
 - [Configuration](#configuration)
 - [Proxy server](#proxy-server)
 - [Requêtes locales](#requêtes_locales)
