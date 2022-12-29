@@ -20,27 +20,27 @@ docker run --rm -d -p 80:80 nginx
 curl localhost
 ```
 
-You should get the **Welcome to nginx** web page.
+Vous devriez vois la page d'accueil **Welcome to nginx**
 
 ## Configuration
 
-Configuration directives's hierachy:
+Les répertoires de config:
 - `main` context contains `events` and `http`
 - `http` contains `server`
 - `server` contains `location`
 
-Loading a minimal configuration (see `./nginx.conf` for details):
+Lancement de la configuration minimale (voir `./nginx.conf` pour plus de details):
 ```
 docker run --rm -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro -v $(pwd)/data:/data:ro -p80:80 nginx
 ```
 
-Then you should be able to get:
+Vous devriez avoir accès aux urls suivantes:
 - http://localhost
 - http://localhost/images/example.png
 
 ## Proxy server
 
-See `nginx-proxy.conf`.
+Voir `nginx-proxy.conf`.
 
 ```
 docker run --rm -v $(pwd)/nginx-proxy.conf:/etc/nginx/nginx.conf:ro -v $(pwd)/data:/data:ro -p80:80 nginx
@@ -49,7 +49,7 @@ curl localhost
 
 ## Requêtes locales
 
-See `nginx-regex.conf`.
+Voir `nginx-regex.conf`.
 
 ```
 docker run --rm -v $(pwd)/nginx-regex.conf:/etc/nginx/nginx.conf:ro -v $(pwd)/data:/data:ro -p80:80 nginx
@@ -59,13 +59,12 @@ docker run --rm -v $(pwd)/nginx-regex.conf:/etc/nginx/nginx.conf:ro -v $(pwd)/da
 
 ## Load balancing
 
-See `nginx-lb.conf`.
+Voir `nginx-lb.conf`.
 
 ```
 docker run --rm -d -v $(pwd)/nginx-lb.conf:/etc/nginx/nginx.conf:ro -v $(pwd)/data:/data:ro -p 80:80 nginx
 ```
-
-Now if you keep reading from http://localhost, it will respond with these responses in round-robin order:
+Maintenant si vous rechargez la page http://localhost, devrait répondre de manière aléatoire (via du round-robin):
 
 - hello from site 1
 - hello from site 2
